@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
     #render({ :template => "user_templates/add.html.erb" })
 
-    redirect_to("/photos/" + a_new_user.username)
+    redirect_to("/users/" + a_new_user.username)
 
   end
   
@@ -34,6 +34,25 @@ class UsersController < ApplicationController
    # else
       render({ :template => "user_templates/show.html.erb" })
     #end
+  end
+
+  def edit
+  
+    the_old_username = params.fetch("modify_username")
+    matching_users = User.where({ :username => the_old_username})
+    the_user = matching_users.at(0)
+    
+    the_new_username = params.fetch("query_username")
+
+
+    the_user.username = the_new_username
+
+    the_user.update
+
+
+    #render({ :template => "user_templates/edit.html.erb" })
+
+    redirect_to("/users/" + the_user.username)
   end
 
 end

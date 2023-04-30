@@ -64,6 +64,20 @@
 
 </tr>
 <% end %>
-
-
 </table>
+
+<h3>Add a new comment</h3>
+
+    <form action="/add_comment">
+      <label for="photo_id">Photo ID</label>
+      <input id="photo_id" type="text" name="photo_id" placeholder="<%= @the_photo.id %>" value="<%= @the_photo.id %>">
+
+      <label for="author_id">Author ID</label>
+      <input id="author_id" type="text" name="author_id">
+
+      <label for="author_comment">Comment</label>
+      <textarea id="author_comment" name="author_comment" placeholder="Enter a comment...">
+      </textarea>
+
+      <button>Add comment</button>
+    </form>
