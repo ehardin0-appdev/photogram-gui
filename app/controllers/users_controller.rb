@@ -38,8 +38,8 @@ class UsersController < ApplicationController
 
   def edit
   
-    the_old_username = params.fetch("modify_username")
-    matching_users = User.where({ :username => the_old_username})
+    user_id = params.fetch("user_id")
+    matching_users = User.where({ :id => user_id})
     the_user = matching_users.at(0)
     
     the_new_username = params.fetch("query_username")
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
 
     the_user.username = the_new_username
 
-    the_user.update
+    the_user.save
 
 
     #render({ :template => "user_templates/edit.html.erb" })

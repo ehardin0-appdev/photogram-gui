@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   get("/add_user", { :controller => "users", :action => "add" })
 
-  get("/edit_user/:modify_username", { :controller => "users", :action => "edit" })
+  get("/edit_user/:user_id", { :controller => "users", :action => "edit" })
 
   get("/add_comment", { :controller => "photos", :action => "comment" })
 end
